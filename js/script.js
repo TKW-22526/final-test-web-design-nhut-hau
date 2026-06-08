@@ -67,9 +67,9 @@ const defaultProducts = [
         id: "09", 
         name: "Phô mai que", 
         price: 36000, 
-        image: "../assets/images/cheesestick.jfif", 
+        image: "../assets/images/cheesestick.jpg", // Đã cập nhật tên và đuôi file ảnh mới
         productLink: "chi-tiet.html",
-        description: "Món ăn vặt quốc dân với lớp vỏ chiên xù giòn rụm bọc lấy nhân phô mai Mozzarella hảo hạng bên trong. Khi ăn nóng có thể kéo sợi dài cực kỳ vui mắt và ngon miệng."
+        description: "Món ăn vặt quốc dân với lớp vỏ chiên xù giòn rụm bọc lấy nhân phô mai Mozzarella hảo hạng bên trong, đi kèm nước uống mát lạnh đầy sảng khoái."
     },
     {
         id: "10", 
@@ -140,14 +140,12 @@ function renderFeaturedProducts() {
 
     featuredContainer.innerHTML = "";
     
-    // Lấy ra 3 món đầu tiên trong mảng dữ liệu để làm sản phẩm nổi bật
     const featuredList = productList.slice(0, 3);
 
     featuredList.forEach(item => {
         const productItem = document.createElement("div");
         productItem.className = "col-md-4 col-sm-6 mb-4"; 
 
-        // Xử lý loại bỏ dấu "../" ra khỏi đường dẫn ảnh vì index.html đang ở ngoài gốc
         let fixedImage = item.image;
         if (fixedImage.startsWith("../")) {
             fixedImage = fixedImage.replace("../", "");
@@ -282,14 +280,11 @@ function clearForm() {
     document.getElementById("image").value = "";
 }
 
-// ================== 5. ĐỒNG BỘ WINDOW ONLOAD CHO CẢ HAI TRANG ==================
 window.onload = function() {
-    // Nếu trang hiện tại có khu vực hiển thị danh sách quản lý (trang san-pham.html)
     if (document.getElementById("product-list")) {
         renderProducts(productList);
     }
     
-    // Nếu trang hiện tại có khu vực hiển thị sản phẩm nổi bật (trang index.html)
     if (document.getElementById("featured-products")) {
         renderFeaturedProducts();
     }
