@@ -69,6 +69,9 @@
 
             // 3. Tìm sản phẩm cụ thể trùng với ID vừa lấy
             const product = productList.find(p => p.id === productId);
+            console.log("productId =", productId);
+            console.log("product =", product);
+            console.log("description =", product?.description);
 
             // 4. Nếu tồn tại sản phẩm, tiến hành đổ dữ liệu động lên giao diện
             if (product) {

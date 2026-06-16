@@ -1,17 +1,76 @@
 // 1. MẢNG MÓN ĂN MẶC ĐỊNH TRÊN HỆ THỐNG
 const defaultProducts = [
-    { id: "01", name: "Gà Rán Truyền Thống", price: 36000, image: "../assets/images/garan.jpg" },
-    { id: "02", name: "Gà Sốt Đậu (Soy Garlic)", price: 41000, image: "../assets/images/gasotSoy.jfif" },
-    { id: "03", name: "Gà Sốt Hot&Sweet", price: 41000, image: "../assets/images/gasotHS.jfif" },
-    { id: "04", name: "Burger Teriyaki", price: 45000, image: "../assets/images/teriyaki.jfif" },
-    { id: "05", name: "Burger Gà", price: 52000, image: "../assets/images/L-Chicken.jfif" },
-    { id: "06", name: "Khoai Tây Chiên", price: 28000, image: "../assets/images/khoaitaychien.jfif" },
-    { id: "07", name: "Mực Rán", price: 28000, image: "../assets/images/mucran.jfif" },
-    { id: "08", name: "Cơm Gà Sốt Phô Mai", price: 48000, image: "../assets/images/cheeserice.jfif" },
-    { id: "09", name: "Phô mai que", price: 36000, image: "../assets/images/cheesestick.jpg" },
-    { id: "10", name: "Kem", price: 22000, image: "../assets/images/kem.jfif" }
+    {
+        id: "01",
+        name: "Gà Rán Truyền Thống",
+        price: 36000,
+        image: "../assets/images/garan.jpg",
+        description: "Gà rán giòn tan với lớp vỏ vàng óng, hương vị truyền thống được nhiều khách hàng yêu thích."
+    },
+    {
+        id: "02",
+        name: "Gà Sốt Đậu (Soy Garlic)",
+        price: 41000,
+        image: "../assets/images/gasotSoy.jfif",
+        description: "Gà rán phủ sốt đậu nành tỏi thơm ngon, đậm đà theo phong cách Hàn Quốc."
+    },
+    {
+        id: "03",
+        name: "Gà Sốt Hot&Sweet",
+        price: 41000,
+        image: "../assets/images/gasotHS.jfif",
+        description: "Sự kết hợp hoàn hảo giữa vị cay nhẹ và vị ngọt hấp dẫn, mang đến trải nghiệm vị giác khó quên."
+    },
+    {
+        id: "04",
+        name: "Burger Teriyaki",
+        price: 45000,
+        image: "../assets/images/teriyaki.jfif",
+        description: "Burger gà sốt Teriyaki đậm đà, rau tươi giòn và bánh mềm thơm ngon."
+    },
+    {
+        id: "05",
+        name: "Burger Gà",
+        price: 52000,
+        image: "../assets/images/L-Chicken.jfif",
+        description: "Burger gà giòn rụm kết hợp rau tươi và sốt đặc biệt tạo nên hương vị hấp dẫn."
+    },
+    {
+        id: "06",
+        name: "Khoai Tây Chiên",
+        price: 28000,
+        image: "../assets/images/khoaitaychien.jfif",
+        description: "Khoai tây chiên vàng giòn bên ngoài, mềm bùi bên trong, ăn kèm tương cà hoặc tương ớt."
+    },
+    {
+        id: "07",
+        name: "Mực Rán",
+        price: 28000,
+        image: "../assets/images/mucran.jfif",
+        description: "Mực tươi được tẩm bột và chiên giòn, giữ nguyên độ ngọt tự nhiên của hải sản."
+    },
+    {
+        id: "08",
+        name: "Cơm Gà Sốt Phô Mai",
+        price: 48000,
+        image: "../assets/images/cheeserice.jfif",
+        description: "Cơm nóng hổi ăn kèm gà rán và sốt phô mai béo ngậy theo phong cách Hàn Quốc."
+    },
+    {
+        id: "09",
+        name: "Phô Mai Que",
+        price: 36000,
+        image: "../assets/images/cheesestick.jpg",
+        description: "Phô mai que kéo sợi hấp dẫn với lớp vỏ chiên giòn vàng ruộm."
+    },
+    {
+        id: "10",
+        name: "Kem",
+        price: 22000,
+        image: "../assets/images/kem.jfif",
+        description: "Kem mát lạnh với hương vị thơm ngon, là món tráng miệng hoàn hảo sau bữa ăn."
+    }
 ];
-
 // Khởi tạo thực đơn từ LocalStorage
 let productList = JSON.parse(localStorage.getItem("products"));
 if (!productList || productList.length === 0) {
@@ -51,7 +110,10 @@ function renderProducts(products) {
                     <p class="text-danger fw-bold fs-5 mb-3 mt-auto">
                         ${item.price.toLocaleString('vi-VN')} đ
                     </p>
-                    <div class="d-grid gap-2">
+                    <div class="d-grid gap-2"> 
+                        <a href="chi-tiet.html?id=${item.id}" class="btn btn-primary btn-sm fw-bold">
+                         👁 Xem chi tiết
+                         </a>         
                         <button class="btn btn-danger btn-sm fw-bold" onclick="buyNow('${item.id}')">
                             🔥 Mua ngay
                         </button>
